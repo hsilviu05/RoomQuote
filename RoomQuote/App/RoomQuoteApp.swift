@@ -18,7 +18,13 @@ struct RoomQuoteApp: App {
                 RootView()
                     .environment(appModel)
                     .modelContainer(container)
-                    .task { SampleData.seedIfNeeded(container.mainContext) }
+                    .task {
+                        SampleData.seedIfNeeded(container.mainContext)
+                        // Unit tests drive StoreKit themselves; the host app stays out of the way.
+                        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
+                            appModel.entitlements.start()
+                        }
+                    }
             case .failure(let error):
                 StoreErrorView(error: error)
             }

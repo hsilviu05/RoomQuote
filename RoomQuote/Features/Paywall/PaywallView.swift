@@ -1,14 +1,22 @@
 import SwiftUI
+import StoreKit
 
 struct PaywallView: View {
-    enum Plan: Hashable { case yearly, monthly }
-
     @Environment(AppModel.self) private var appModel
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
-    @State private var plan: Plan = .yearly
+    @State private var selectedID = SubscriptionConfig.yearlyProductID
     @State private var isWorking = false
-    @State private var errorMessage: String?
+    @State private var alert: AlertContent?
+
+    struct AlertContent: Identifiable {
+        let id = UUID()
+        let title: String
+        let message: String
+    }
+
+    private var store: EntitlementStore { appModel.entitlements }
+    private var selected: Product? { store.products.first { $0.id == selectedID } }
 
     private let features: [LocalizedStringKey] = [
         "Unlimited room scans and quotes",
@@ -56,68 +64,130 @@ struct PaywallView: View {
                     }
                     .padding(.top, 20)
 
-                    VStack(spacing: 10) {
-                        planButton(.yearly,
-                                   title: "Yearly",
-                                   detail: "\(SubscriptionConfig.yearlyDisplayPrice) / year · \(SubscriptionConfig.yearlyPerMonthDisplayPrice) / month",
-                                   badge: "Save 33%")
-                        planButton(.monthly,
-                                   title: "Monthly",
-                                   detail: "\(SubscriptionConfig.monthlyDisplayPrice) / month",
-                                   badge: nil)
-                    }
-                    .padding(.top, 26)
+                    plans.padding(.top, 26)
                 }
                 .foregroundStyle(Theme.textPrimary)
                 .padding(.horizontal, 24)
                 .padding(.top, 4)
             }
 
-            VStack(spacing: 10) {
+            footer
+        }
+        .background(Theme.surface)
+        .task { if store.loadState != .loaded { await store.loadProducts() } }
+        .alert(item: $alert) { content in
+            Alert(title: Text(content.title), message: Text(content.message))
+        }
+    }
+
+    @ViewBuilder
+    private var plans: some View {
+        if store.isPro {
+            Label("You're on Pro. Thank you!", systemImage: "checkmark.seal.fill")
+                .font(.headline.weight(.heavy))
+                .foregroundStyle(Theme.accentText)
+        } else {
+            switch store.loadState {
+            case .loaded:
+                VStack(spacing: 10) {
+                    if let yearly = store.yearly {
+                        planButton(yearly, title: "Yearly", detail: yearlyDetail(yearly), badge: savingsBadge)
+                    }
+                    if let monthly = store.monthly {
+                        planButton(monthly, title: "Monthly", detail: String(localized: "\(monthly.displayPrice) / month"), badge: nil)
+                    }
+                }
+            case .failed:
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Couldn't load subscription prices. Check your connection and try again.")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Theme.textSecondary)
+                    Button("Try again") { Task { await store.loadProducts() } }
+                        .font(.subheadline.weight(.bold))
+                        .frame(minHeight: 44)
+                }
+            case .idle, .loading:
+                ProgressView("Loading prices…")
+                    .frame(maxWidth: .infinity, minHeight: 138)
+            }
+        }
+    }
+
+    private var footer: some View {
+        VStack(spacing: 10) {
+            if !store.isPro {
                 Button {
                     Task { await purchase() }
                 } label: {
-                    if isWorking { ProgressView().tint(.white) } else { Text("Start \(SubscriptionConfig.trialDays)-day free trial") }
+                    if isWorking { ProgressView().tint(.white) } else { Text(ctaTitle) }
                 }
                 .buttonStyle(PrimaryButtonStyle(minHeight: 56))
-                .disabled(isWorking)
+                .disabled(isWorking || selected == nil)
 
-                Text(termsText)
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(Theme.textSecondary)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-
-                HStack(spacing: 18) {
-                    Button("Restore purchases") { Task { await restore() } }
-                    Button("Terms") { openURL(SubscriptionConfig.termsURL) }
-                    Button("Privacy") { openURL(SubscriptionConfig.privacyURL) }
+                if let terms = termsText {
+                    Text(terms)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Theme.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
                 }
-                .font(.footnote.weight(.bold))
-                .foregroundStyle(Theme.textSecondary)
-                .frame(maxWidth: .infinity, minHeight: 44)
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 16)
-            .padding(.bottom, 12)
+
+            HStack(spacing: 18) {
+                Button("Restore purchases") { Task { await restore() } }
+                    .disabled(isWorking)
+                Button("Terms") { openURL(SubscriptionConfig.termsURL) }
+                Button("Privacy") { openURL(SubscriptionConfig.privacyURL) }
+            }
+            .font(.footnote.weight(.bold))
+            .foregroundStyle(Theme.textSecondary)
+            .frame(maxWidth: .infinity, minHeight: 44)
         }
-        .background(Theme.surface)
-        .alert("Purchase not completed", isPresented: .constant(errorMessage != nil), presenting: errorMessage) { _ in
-            Button("OK") { errorMessage = nil }
-        } message: { Text($0) }
+        .padding(.horizontal, 24)
+        .padding(.top, 16)
+        .padding(.bottom, 12)
     }
 
-    private var termsText: String {
-        let price = plan == .yearly
-            ? String(localized: "\(SubscriptionConfig.yearlyDisplayPrice) per year")
-            : String(localized: "\(SubscriptionConfig.monthlyDisplayPrice) per month")
-        return String(localized: "Free for \(SubscriptionConfig.trialDays) days, then \(price). Cancel anytime in Settings at least 24 hours before renewal.")
+    // MARK: Copy
+
+    private var trialDays: Int? {
+        guard store.isEligibleForTrial,
+              let offer = selected?.subscription?.introductoryOffer,
+              offer.paymentMode == .freeTrial
+        else { return nil }
+        return offer.period.days * offer.periodCount
     }
 
-    private func planButton(_ value: Plan, title: LocalizedStringKey, detail: String, badge: LocalizedStringKey?) -> some View {
-        let isSelected = plan == value
+    private var ctaTitle: String {
+        if let trialDays { return String(localized: "Start \(trialDays)-day free trial") }
+        return String(localized: "Subscribe")
+    }
+
+    private var termsText: String? {
+        guard let selected, let period = selected.subscription?.subscriptionPeriod else { return nil }
+        let price = String(localized: "\(selected.displayPrice) per \(period.unitName)")
+        if let trialDays {
+            return String(localized: "Free for \(trialDays) days, then \(price). Cancel anytime in Settings at least 24 hours before renewal.")
+        }
+        return String(localized: "\(price), renews automatically. Cancel anytime in Settings at least 24 hours before renewal.")
+    }
+
+    private func yearlyDetail(_ yearly: Product) -> String {
+        let perMonth = (yearly.price / 12).formatted(yearly.priceFormatStyle)
+        return String(localized: "\(yearly.displayPrice) / year · \(perMonth) / month")
+    }
+
+    private var savingsBadge: String? {
+        guard let yearly = store.yearly, let monthly = store.monthly,
+              let percent = PaywallMath.savingsPercent(yearly: yearly.price, monthly: monthly.price)
+        else { return nil }
+        return String(localized: "Save \(percent)%")
+    }
+
+    private func planButton(_ product: Product, title: LocalizedStringKey, detail: String, badge: String?) -> some View {
+        let isSelected = selectedID == product.id
         return Button {
-            plan = value
+            selectedID = product.id
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
@@ -148,23 +218,65 @@ struct PaywallView: View {
         .accessibilityAddTraits(isSelected ? [.isSelected] : [])
     }
 
+    // MARK: Actions
+
     private func purchase() async {
+        guard let selected else { return }
         isWorking = true
         defer { isWorking = false }
-        let productID = plan == .yearly ? SubscriptionConfig.yearlyProductID : SubscriptionConfig.monthlyProductID
         do {
-            try await appModel.entitlements.purchase(productID: productID)
-            dismiss()
+            if try await store.purchase(selected) { dismiss() }
         } catch {
-            errorMessage = error.localizedDescription
+            alert = AlertContent(title: String(localized: "Purchase not completed"), message: error.localizedDescription)
         }
     }
 
     private func restore() async {
+        isWorking = true
+        defer { isWorking = false }
         do {
-            try await appModel.entitlements.restorePurchases()
+            try await store.restorePurchases()
+            if store.isPro {
+                dismiss()
+            } else {
+                alert = AlertContent(title: String(localized: "Nothing to restore"),
+                                     message: String(localized: "No active RoomQuote Pro subscription was found for this Apple Account."))
+            }
         } catch {
-            errorMessage = error.localizedDescription
+            alert = AlertContent(title: String(localized: "Restore failed"), message: error.localizedDescription)
+        }
+    }
+}
+
+enum PaywallMath {
+    /// How much cheaper a year is than 12 months, rounded down so the badge never overstates it.
+    static func savingsPercent(yearly: Decimal, monthly: Decimal) -> Int? {
+        let fullYear = monthly * 12
+        guard fullYear > 0, yearly < fullYear else { return nil }
+        let percent = ((fullYear - yearly) / fullYear * 100).rounded(scale: 0, mode: .down)
+        let value = NSDecimalNumber(decimal: percent).intValue
+        return value > 0 ? value : nil
+    }
+}
+
+extension Product.SubscriptionPeriod {
+    var days: Int {
+        switch unit {
+        case .day: value
+        case .week: value * 7
+        case .month: value * 30
+        case .year: value * 365
+        @unknown default: value
+        }
+    }
+
+    var unitName: String {
+        switch unit {
+        case .day: String(localized: "day")
+        case .week: String(localized: "week")
+        case .month: String(localized: "month")
+        case .year: String(localized: "year")
+        @unknown default: String(localized: "period")
         }
     }
 }

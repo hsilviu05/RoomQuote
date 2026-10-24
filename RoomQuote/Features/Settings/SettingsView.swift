@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import PhotosUI
+import StoreKit
 import Estimator
 
 struct SettingsView: View {
@@ -98,16 +99,33 @@ private struct SettingsForm: View {
             }
 
             Section {
-                Button("Upgrade to Pro") { appModel.isPaywallPresented = true }
+                if appModel.entitlements.isPro {
+                    Label("RoomQuote Pro is active", systemImage: "checkmark.seal.fill")
+                    Button("Manage subscription") {
+                        Task {
+                            guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                            do { try await AppStore.showManageSubscriptions(in: scene) } catch { errorMessage = error.localizedDescription }
+                        }
+                    }
+                } else {
+                    Button("Upgrade to Pro") { appModel.isPaywallPresented = true }
+                }
                 Button("Restore purchases") {
                     Task {
-                        do { try await appModel.entitlements.restorePurchases() } catch { errorMessage = error.localizedDescription }
+                        do {
+                            try await appModel.entitlements.restorePurchases()
+                            if !appModel.entitlements.isPro {
+                                errorMessage = String(localized: "No active RoomQuote Pro subscription was found for this Apple Account.")
+                            }
+                        } catch {
+                            errorMessage = error.localizedDescription
+                        }
                     }
                 }
             } header: {
                 Text("Subscription")
             } footer: {
-                Text("Free plan: \(QuoteLimitPolicy.freeQuotesPerMonth) quotes a month.")
+                Text(appModel.entitlements.isPro ? "Unlimited quotes." : "Free plan: \(QuoteLimitPolicy.freeQuotesPerMonth) quotes a month.")
             }
 
             Section {
