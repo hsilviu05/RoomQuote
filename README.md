@@ -54,4 +54,4 @@ On first launch, Debug builds fill an empty store with the clients, prices and q
 
 ## Status
 
-Room scanning (RoomPlan), PDF generation and the StoreKit paywall are stubs, marked `STUB:` in the code.
+Room scanning (RoomPlan) and the StoreKit paywall are stubs, marked `STUB:` in the code. Quotes export as A4 PDFs (share sheet, Mail, Files).

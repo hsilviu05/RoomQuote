@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import Estimator
+import UniformTypeIdentifiers
 
 struct QuoteView: View {
     let quote: Quote
@@ -8,14 +9,65 @@ struct QuoteView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(AppModel.self) private var appModel
     @Query private var profiles: [BusinessProfile]
-    @State private var isPDFStubAlertShown = false
     @State private var saveError: String?
+    @State private var shareItem: ShareItem?
+    @State private var mailItem: MailItem?
+    @State private var exportFile: PDFFile?
+    @State private var exportName = ""
+    @State private var isExporting = false
+
+    struct ShareItem: Identifiable {
+        let id = UUID()
+        let url: URL
+    }
+
+    struct MailItem: Identifiable {
+        let id = UUID()
+        let data: Data
+        let fileName: String
+    }
 
     private var profile: BusinessProfile? { profiles.first }
     private var f: Formatters {
         Formatters(currencyCode: profile?.currencyCode ?? "RON", unitSystem: profile?.unitSystem ?? .metric)
     }
     private var shareText: String { QuoteText.make(quote: quote, profile: profile, formatters: f) }
+
+    /// Renders the current quote. Returns nil (and shows an alert) if the totals can't be computed.
+    private func makePDF() -> (data: Data, fileName: String)? {
+        do {
+            let document = try QuoteDocument(quote: quote, profile: profile, formatters: f)
+            return (QuotePDFRenderer.render(document), document.fileName)
+        } catch {
+            saveError = error.localizedDescription
+            return nil
+        }
+    }
+
+    private func sharePDF() {
+        guard let pdf = makePDF() else { return }
+        do {
+            shareItem = ShareItem(url: try PDFExport.temporaryFile(data: pdf.data, fileName: pdf.fileName))
+        } catch {
+            saveError = error.localizedDescription
+        }
+    }
+
+    private func emailPDF() {
+        guard MailView.canSend else {
+            sharePDF()
+            return
+        }
+        guard let pdf = makePDF() else { return }
+        mailItem = MailItem(data: pdf.data, fileName: pdf.fileName)
+    }
+
+    private func savePDF() {
+        guard let pdf = makePDF() else { return }
+        exportFile = PDFFile(data: pdf.data)
+        exportName = pdf.fileName
+        isExporting = true
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -33,11 +85,28 @@ struct QuoteView: View {
         .background(Theme.paperBackdrop)
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
-        // STUB: replaced by the PDF generator (UIGraphicsPDFRenderer) in the PDF step.
-        .alert("PDF export is coming next", isPresented: $isPDFStubAlertShown) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text("For now, WhatsApp and Email send the quote as text.")
+        .sheet(item: $shareItem) { item in
+            ActivityView(items: [item.url]) { completed in
+                if completed { markSentIfDraft() }
+                shareItem = nil
+            }
+            .presentationDetents([.medium, .large])
+        }
+        .sheet(item: $mailItem) { item in
+            MailView(
+                recipient: quote.client?.email,
+                subject: String(localized: "Quote \(quote.displayNumber)"),
+                body: shareText,
+                attachment: item.data,
+                fileName: item.fileName
+            ) { result in
+                if result == .sent { markSentIfDraft() }
+                mailItem = nil
+            }
+            .ignoresSafeArea()
+        }
+        .fileExporter(isPresented: $isExporting, document: exportFile, contentType: .pdf, defaultFilename: exportName) { result in
+            if case .failure(let error) = result { saveError = error.localizedDescription }
         }
         .alert("Couldn't update the quote", isPresented: .constant(saveError != nil), presenting: saveError) { _ in
             Button("OK") { saveError = nil }
@@ -201,23 +270,19 @@ struct QuoteView: View {
 
     private var actions: some View {
         VStack(spacing: 10) {
-            ShareLink(item: shareText, subject: Text("Quote \(quote.displayNumber)")) {
+            Button(action: sharePDF) {
                 Label("Send on WhatsApp", systemImage: "message")
             }
             .buttonStyle(PrimaryButtonStyle())
-            .simultaneousGesture(TapGesture().onEnded { markSentIfDraft() })
-            .accessibilityHint(Text("Opens the share sheet. Choose WhatsApp."))
+            .accessibilityHint(Text("Opens the share sheet with the quote PDF. Choose WhatsApp."))
 
             HStack(spacing: 10) {
-                ShareLink(item: shareText, subject: Text("Quote \(quote.displayNumber)")) {
-                    Text("Email")
-                }
-                .buttonStyle(SecondaryButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded { markSentIfDraft() })
-                .accessibilityHint(Text("Opens the share sheet. Choose Mail."))
-
-                Button("Save PDF") { isPDFStubAlertShown = true }
+                Button("Email", action: emailPDF)
                     .buttonStyle(SecondaryButtonStyle())
+                    .accessibilityHint(Text("Writes an email with the quote PDF attached."))
+                Button("Save PDF", action: savePDF)
+                    .buttonStyle(SecondaryButtonStyle())
+                    .accessibilityHint(Text("Saves the quote PDF to Files."))
             }
         }
         .padding(.horizontal, 16)
