@@ -21,8 +21,10 @@ Steps:
 The calculation code is a local Swift package with no app dependencies, so its tests run without a simulator:
 
 ```bash
-swift test --package-path Packages/Estimator
+swift test --package-path Packages/Estimator --scratch-path /tmp/roomquote-estimator-build
 ```
+
+`--scratch-path` keeps build output out of the project folder. If the folder lives in an iCloud-synced Desktop or Documents, building in place fails at code signing ("resource fork, Finder information, or similar detritus not allowed") because iCloud adds file attributes.
 
 App tests (SwiftData models and view models) run on a simulator:
 
