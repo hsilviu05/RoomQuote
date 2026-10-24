@@ -9,7 +9,7 @@ enum SubscriptionConfig {
     static var productIDs: [String] { [yearlyProductID, monthlyProductID] }
     // Both must open real pages before App Review (guideline 3.1.2).
     static let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
-    static let privacyURL = URL(string: "https://example.com/roomquote/privacy")!
+    static let privacyURL = URL(string: "https://hsilviu05.github.io/RoomQuote/privacy.html")!
 }
 
 /// Free plan: this many quotes per calendar month.
