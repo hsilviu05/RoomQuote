@@ -69,6 +69,14 @@ private struct SettingsForm: View {
                 if profile.logo != nil {
                     Button("Remove logo", role: .destructive) { profile.logo = nil }
                 }
+                if !appModel.entitlements.isPro {
+                    Button {
+                        appModel.isPaywallPresented = true
+                    } label: {
+                        Label("Your logo appears on quotes with Pro", systemImage: "lock")
+                            .font(.footnote)
+                    }
+                }
             }
 
             Section("Quotes") {

@@ -20,7 +20,7 @@ struct PaywallView: View {
 
     private let features: [LocalizedStringKey] = [
         "Unlimited room scans and quotes",
-        "Your logo and terms on every PDF",
+        "Your logo on every PDF",
         "Saved price lists for paint, floors and tiles",
         "Quote tracking: sent, accepted, paid"
     ]

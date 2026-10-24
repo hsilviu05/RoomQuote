@@ -36,7 +36,7 @@ struct QuoteView: View {
     /// Renders the current quote. Returns nil (and shows an alert) if the totals can't be computed.
     private func makePDF() -> (data: Data, fileName: String)? {
         do {
-            let document = try QuoteDocument(quote: quote, profile: profile, formatters: f)
+            let document = try QuoteDocument(quote: quote, profile: profile, formatters: f, isPro: appModel.entitlements.isPro)
             return (QuotePDFRenderer.render(document), document.fileName)
         } catch {
             saveError = error.localizedDescription
@@ -187,7 +187,7 @@ struct QuoteView: View {
 
     @ViewBuilder
     private var logo: some View {
-        if let data = profile?.logo, let image = UIImage(data: data) {
+        if appModel.entitlements.isPro, let data = profile?.logo, let image = UIImage(data: data) {
             Image(uiImage: image)
                 .resizable()
                 .scaledToFit()

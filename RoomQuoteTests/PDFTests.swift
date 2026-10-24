@@ -23,7 +23,7 @@ struct PDFTests {
     func document() throws {
         let container = try AppSchema.makeContainer(inMemory: true)
         let (quote, profile) = try sampleQuote(in: container.mainContext)
-        let doc = try QuoteDocument(quote: quote, profile: profile, formatters: formatters)
+        let doc = try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: false)
         #expect(doc.businessName == "Popa Renovări")
         #expect(doc.businessDetails == ["0722 000 000"])
         #expect(doc.clientName == "Ana Popescu")
@@ -35,13 +35,26 @@ struct PDFTests {
         #expect(doc.fileName == "Quote-0030-Ana-Popescu.pdf")
     }
 
+    @Test("Free PDFs have no logo and a RoomQuote footer; Pro PDFs show the logo")
+    func logoIsPro() throws {
+        let container = try AppSchema.makeContainer(inMemory: true)
+        let (quote, profile) = try sampleQuote(in: container.mainContext)
+        profile.logo = Data([0x89, 0x50, 0x4E, 0x47])
+        let free = try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: false)
+        #expect(free.logoPNG == nil)
+        #expect(free.brandingFooter == "Made with RoomQuote")
+        let pro = try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: true)
+        #expect(pro.logoPNG == profile.logo)
+        #expect(pro.brandingFooter == nil)
+    }
+
     @Test("VAT adds subtotal and VAT rows")
     func vatRows() throws {
         let container = try AppSchema.makeContainer(inMemory: true)
         let (quote, profile) = try sampleQuote(in: container.mainContext)
         quote.vatEnabled = true
         quote.vatRatePercent = 19
-        let doc = try QuoteDocument(quote: quote, profile: profile, formatters: formatters)
+        let doc = try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: false)
         #expect(doc.subtotal?.amount == "1,193.58 lei")
         #expect(doc.vat == QuoteDocument.Line(description: "VAT 19%", amount: "226.78 lei"))
         #expect(doc.total.amount == "1,420.36 lei")
@@ -51,7 +64,7 @@ struct PDFTests {
     func render() throws {
         let container = try AppSchema.makeContainer(inMemory: true)
         let (quote, profile) = try sampleQuote(in: container.mainContext)
-        let data = QuotePDFRenderer.render(try QuoteDocument(quote: quote, profile: profile, formatters: formatters))
+        let data = QuotePDFRenderer.render(try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: false))
         let pdf = try #require(PDFDocument(data: data))
         #expect(pdf.pageCount == 1)
         let bounds = try #require(pdf.page(at: 0)).bounds(for: .mediaBox)

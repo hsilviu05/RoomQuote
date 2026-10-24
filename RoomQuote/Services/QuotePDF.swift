@@ -23,11 +23,14 @@ struct QuoteDocument: Equatable {
     var total: Line
     var validity: String?
     var terms: String?
+    /// Free plan only: a small "Made with RoomQuote" line at the bottom.
+    var brandingFooter: String? = nil
 }
 
 extension QuoteDocument {
     @MainActor
-    init(quote: Quote, profile: BusinessProfile?, formatters f: Formatters, locale: Locale = .current) throws {
+    /// Free plan: no logo, plus a small RoomQuote footer. Pro: the business logo, no footer.
+    init(quote: Quote, profile: BusinessProfile?, formatters f: Formatters, isPro: Bool, locale: Locale = .current) throws {
         let totals = try quote.totals()
         let hasName = !(profile?.name.isEmpty ?? true)
         businessName = hasName ? profile!.name : String(localized: "Quote")
@@ -35,7 +38,8 @@ extension QuoteDocument {
                            profile.map { $0.vatNumber.isEmpty ? "" : String(localized: "VAT no. \($0.vatNumber)") } ?? ""]
             .flatMap { $0.split(separator: "\n").map(String.init) }
             .filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
-        logoPNG = profile?.logo
+        logoPNG = isPro ? profile?.logo : nil
+        brandingFooter = isPro ? nil : String(localized: "Made with RoomQuote")
         title = String(localized: "QUOTE")
         number = quote.displayNumber
         date = (quote.sentAt ?? quote.createdAt).formatted(.dateTime.day().month(.abbreviated).year().locale(locale))
@@ -224,12 +228,18 @@ enum QuotePDFRenderer {
 
         mutating func drawFooter(_ doc: QuoteDocument) {
             let text = [doc.validity, doc.terms].compactMap { $0 }.joined(separator: "\n")
-            guard !text.isEmpty else { return }
-            let attrs = attributes(9.5, .medium, secondary)
-            let textHeight = height(of: text, width: width, attrs)
-            ensureSpace(textHeight)
-            draw(text, at: CGPoint(x: margin, y: y), width: width, attrs)
-            y += textHeight
+            if !text.isEmpty {
+                let attrs = attributes(9.5, .medium, secondary)
+                let textHeight = height(of: text, width: width, attrs)
+                ensureSpace(textHeight)
+                draw(text, at: CGPoint(x: margin, y: y), width: width, attrs)
+                y += textHeight
+            }
+            if let branding = doc.brandingFooter {
+                // Pinned to the bottom of the last page.
+                let attrs = attributes(8, .semibold, UIColor(hex: 0x6B7280), align: .center)
+                draw(branding, at: CGPoint(x: margin, y: pageSize.height - margin + 12), width: width, attrs)
+            }
         }
     }
 }
