@@ -21,7 +21,7 @@ struct QuotesHomeView: View {
                 header
                 StatRow {
                     StatCard(value: "\(stats.sentThisMonth)", label: String(localized: "Sent this month"))
-                    StatCard(value: "\(stats.acceptedThisMonth)", label: String(localized: "Accepted"))
+                    StatCard(value: "\(stats.acceptedThisMonth)", label: String(localized: "stat.accepted", defaultValue: "Accepted", comment: "Stat card: number of quotes accepted this month"))
                     StatCard(value: stats.winRatePercent.map { "\($0)%" } ?? "–", label: String(localized: "Win rate"))
                 }
                 newQuoteButton

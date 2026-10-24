@@ -20,6 +20,9 @@ struct RoomQuoteApp: App {
                     .modelContainer(container)
                     .task {
                         SampleData.seedIfNeeded(container.mainContext)
+                        #if DEBUG
+                        DebugLaunch.apply(to: appModel, context: container.mainContext)
+                        #endif
                         // Unit tests drive StoreKit themselves; the host app stays out of the way.
                         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
                             appModel.entitlements.start()

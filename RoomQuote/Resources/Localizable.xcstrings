@@ -1,0 +1,3196 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "[Email]": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "[Email]"
+          }
+        }
+      }
+    },
+    "[Phone]": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "[Telefon]"
+          }
+        }
+      }
+    },
+    "[Your business name]": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "[Numele firmei]"
+          }
+        }
+      }
+    },
+    "[Your payment terms]": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "[Condițiile de plată]"
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ · %@ floor": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@ floor"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@ pardoseală"
+          }
+        }
+      }
+    },
+    "%@ · %@ walls": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@ walls"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@ pereți"
+          }
+        }
+      }
+    },
+    "%@ · height %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · height %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · înălțime %2$@"
+          }
+        }
+      }
+    },
+    "%@ / month": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / lună"
+          }
+        }
+      }
+    },
+    "%@ / year · %@ / month": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ / year · %2$@ / month"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ / an · %2$@ / lună"
+          }
+        }
+      }
+    },
+    "%@ %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ %lld is bigger than the wall, so it was limited to the wall size.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$lld is bigger than the wall, so it was limited to the wall size."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$lld e mai mare decât peretele, așa că a fost limitată la dimensiunea peretelui."
+          }
+        }
+      }
+    },
+    "%@ × %@/m²": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ × %2$@/m²"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ × %2$@/m²"
+          }
+        }
+      }
+    },
+    "%@ flooring, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ flooring, %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, pardoseală, %2$@"
+          }
+        }
+      }
+    },
+    "%@ ft² per gallon": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ft² pe galon"
+          }
+        }
+      }
+    },
+    "%@ h × %@/h": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ h × %2$@/h"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ h × %2$@/h"
+          }
+        }
+      }
+    },
+    "%@ incl. waste · %lld boxes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ incl. waste · %2$lld boxes"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ cu pierderi · %2$lld cutii"
+          }
+        }
+      }
+    },
+    "%@ m² per litre": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ m² pe litru"
+          }
+        }
+      }
+    },
+    "%@ needed · %lld × %@ cans": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ needed · %2$lld × %3$@ cans"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ necesari · %2$lld × %3$@ cutii"
+          }
+        }
+      }
+    },
+    "%@ painting, %lld coats, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ painting, %2$lld coats, %3$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, zugrăvit, %2$lld straturi, %3$@"
+          }
+        }
+      }
+    },
+    "%@ per %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ per %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ pe %2$@"
+          }
+        }
+      }
+    },
+    "%@ per box": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ pe cutie"
+          }
+        }
+      }
+    },
+    "%@ percent": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ la sută"
+          }
+        }
+      }
+    },
+    "%@ tiling, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ tiling, %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, faianță/gresie, %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "%@, %lld × %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, %2$lld × %3$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$lld × %3$@"
+          }
+        }
+      }
+    },
+    "%@, %lld boxes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, %2$lld boxes"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$lld cutii"
+          }
+        }
+      }
+    },
+    "%@, 1 × %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, 1 × %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, 1 × %2$@"
+          }
+        }
+      }
+    },
+    "%@, 1 box": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, 1 cutie"
+          }
+        }
+      }
+    },
+    "%@, renews automatically. Cancel anytime in Settings at least 24 hours before renewal.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, se reînnoiește automat. Poți anula oricând din Configurări, cu cel puțin 24 de ore înainte de reînnoire."
+          }
+        }
+      }
+    },
+    "%@: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@: %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "%lld": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld"
+          }
+        }
+      }
+    },
+    "%lld doors": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld uși"
+          }
+        }
+      }
+    },
+    "%lld quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld oferte"
+          }
+        }
+      }
+    },
+    "%lld walls": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pereți"
+          }
+        }
+      }
+    },
+    "%lld windows": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ferestre"
+          }
+        }
+      }
+    },
+    "0": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0"
+          }
+        }
+      }
+    },
+    "0 coats: no paint is needed.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 straturi: nu e nevoie de vopsea."
+          }
+        }
+      }
+    },
+    "0.0": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0,0"
+          }
+        }
+      }
+    },
+    "1 × %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 × %@"
+          }
+        }
+      }
+    },
+    "1 box": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 cutie"
+          }
+        }
+      }
+    },
+    "1 can": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 cutie"
+          }
+        }
+      }
+    },
+    "1 door": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ușă"
+          }
+        }
+      }
+    },
+    "1 h × %@/h": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 h × %@/h"
+          }
+        }
+      }
+    },
+    "1 quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ofertă"
+          }
+        }
+      }
+    },
+    "1 wall": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 perete"
+          }
+        }
+      }
+    },
+    "1 window": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 fereastră"
+          }
+        }
+      }
+    },
+    "2.2": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2,2"
+          }
+        }
+      }
+    },
+    "5": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5"
+          }
+        }
+      }
+    },
+    "19": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "19"
+          }
+        }
+      }
+    },
+    "Accepted": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceptată"
+          }
+        }
+      }
+    },
+    "Add client": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă client"
+          }
+        }
+      }
+    },
+    "Add door": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă ușă"
+          }
+        }
+      }
+    },
+    "Add item": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă articol"
+          }
+        }
+      }
+    },
+    "Add price": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă preț"
+          }
+        }
+      }
+    },
+    "Add window": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă fereastră"
+          }
+        }
+      }
+    },
+    "Add your paint, flooring, tile and labour prices so quotes fill in automatically.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă prețurile pentru vopsea, pardoseli, faianță și manoperă, ca ofertele să se completeze automat."
+          }
+        }
+      }
+    },
+    "Address": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresă"
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toate"
+          }
+        }
+      }
+    },
+    "All quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toate ofertele"
+          }
+        }
+      }
+    },
+    "Amount": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumă"
+          }
+        }
+      }
+    },
+    "An opening": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un gol"
+          }
+        }
+      }
+    },
+    "Back": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Înapoi"
+          }
+        }
+      }
+    },
+    "box coverage": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "suprafața pe cutie"
+          }
+        }
+      }
+    },
+    "Box coverage": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suprafață pe cutie"
+          }
+        }
+      }
+    },
+    "Business": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firmă"
+          }
+        }
+      }
+    },
+    "Business logo": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo-ul firmei"
+          }
+        }
+      }
+    },
+    "Business name": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numele firmei"
+          }
+        }
+      }
+    },
+    "Camera view of the room being scanned": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imaginea camerei care se scanează"
+          }
+        }
+      }
+    },
+    "can size": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "mărimea cutiei"
+          }
+        }
+      }
+    },
+    "Can't open your data": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datele nu pot fi deschise"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anulează"
+          }
+        }
+      }
+    },
+    "Cancel scan": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anulează scanarea"
+          }
+        }
+      }
+    },
+    "Category": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categorie"
+          }
+        }
+      }
+    },
+    "Charge VAT": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adaugă TVA"
+          }
+        }
+      }
+    },
+    "Charged": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se taxează"
+          }
+        }
+      }
+    },
+    "Check %@: it must be more than 0.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verifică %@: trebuie să fie mai mare decât 0."
+          }
+        }
+      }
+    },
+    "Choose": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alege"
+          }
+        }
+      }
+    },
+    "Client name (optional)": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numele clientului (opțional)"
+          }
+        }
+      }
+    },
+    "Client, room or number": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Client, cameră sau număr"
+          }
+        }
+      }
+    },
+    "Clients": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clienți"
+          }
+        }
+      }
+    },
+    "Clients are added when you create a quote, or tap + to add one.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clienții se adaugă când creezi o ofertă sau apăsând +."
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Închide"
+          }
+        }
+      }
+    },
+    "coats": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "straturile"
+          }
+        }
+      }
+    },
+    "Coats": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Straturi"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuă"
+          }
+        }
+      }
+    },
+    "Couldn't delete": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-a putut șterge"
+          }
+        }
+      }
+    },
+    "Couldn't load settings": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configurările nu s-au putut încărca"
+          }
+        }
+      }
+    },
+    "Couldn't load subscription prices. Check your connection and try again.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prețurile abonamentului nu s-au putut încărca. Verifică conexiunea și încearcă din nou."
+          }
+        }
+      }
+    },
+    "Couldn't remove": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-a putut elimina"
+          }
+        }
+      }
+    },
+    "Couldn't save": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-a putut salva"
+          }
+        }
+      }
+    },
+    "Couldn't save the room": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera nu s-a putut salva"
+          }
+        }
+      }
+    },
+    "Couldn't update the quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oferta nu s-a putut actualiza"
+          }
+        }
+      }
+    },
+    "coverage": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "randamentul"
+          }
+        }
+      }
+    },
+    "Coverage": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Randament"
+          }
+        }
+      }
+    },
+    "Create quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creează oferta"
+          }
+        }
+      }
+    },
+    "Currency": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monedă"
+          }
+        }
+      }
+    },
+    "Current logo": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo-ul actual"
+          }
+        }
+      }
+    },
+    "day": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "zi"
+          }
+        }
+      }
+    },
+    "Demo": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo"
+          }
+        }
+      }
+    },
+    "Demo scan: this device has no LiDAR, so sample measurements are used.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanare demo: dispozitivul nu are LiDAR, așa că se folosesc măsurători de exemplu."
+          }
+        }
+      }
+    },
+    "Door": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ușă"
+          }
+        }
+      }
+    },
+    "Doors and windows": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uși și ferestre"
+          }
+        }
+      }
+    },
+    "Draft": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciornă"
+          }
+        }
+      }
+    },
+    "Edit": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editează"
+          }
+        }
+      }
+    },
+    "Edit client": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editează clientul"
+          }
+        }
+      }
+    },
+    "Edit price": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editează prețul"
+          }
+        }
+      }
+    },
+    "Edit quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editează oferta"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email"
+          }
+        }
+      }
+    },
+    "Empty": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gol"
+          }
+        }
+      }
+    },
+    "Enter a number, like 2.5": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdu un număr, de exemplu 2,5"
+          }
+        }
+      }
+    },
+    "Enter a price of 0 or more": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdu un preț de 0 sau mai mare"
+          }
+        }
+      }
+    },
+    "Enter measurements": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdu măsurătorile"
+          }
+        }
+      }
+    },
+    "Fewer coats": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mai puține straturi"
+          }
+        }
+      }
+    },
+    "Finish scan": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termină scanarea"
+          }
+        }
+      }
+    },
+    "fixed": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "fix"
+          }
+        }
+      }
+    },
+    "Fixed item": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Articol fix"
+          }
+        }
+      }
+    },
+    "Floor": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pardoseală"
+          }
+        }
+      }
+    },
+    "Flooring": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pardoseală"
+          }
+        }
+      }
+    },
+    "For": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pentru"
+          }
+        }
+      }
+    },
+    "For: ": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pentru: "
+          }
+        }
+      }
+    },
+    "For: %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pentru: %@"
+          }
+        }
+      }
+    },
+    "Free for %lld days, then %@. Cancel anytime in Settings at least 24 hours before renewal.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Free for %1$lld days, then %2$@. Cancel anytime in Settings at least 24 hours before renewal."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gratuit %1$lld zile, apoi %2$@. Poți anula oricând din Configurări, cu cel puțin 24 de ore înainte de reînnoire."
+          }
+        }
+      }
+    },
+    "Free plan: %lld quotes a month.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plan gratuit: %lld oferte pe lună."
+          }
+        }
+      }
+    },
+    "Free plan: %lld quotes a month. Pro removes every limit.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plan gratuit: %lld oferte pe lună. Pro elimină orice limită."
+          }
+        }
+      }
+    },
+    "Height": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Înălțime"
+          }
+        }
+      }
+    },
+    "How many: %lld": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Câte: %lld"
+          }
+        }
+      }
+    },
+    "Imperial (ft, ft², gal)": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imperial (ft, ft², gal)"
+          }
+        }
+      }
+    },
+    "Item": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Articol"
+          }
+        }
+      }
+    },
+    "Job": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucrare"
+          }
+        }
+      }
+    },
+    "Job type": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tip de lucrare"
+          }
+        }
+      }
+    },
+    "Job: ": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucrare: "
+          }
+        }
+      }
+    },
+    "Job: %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucrare: %@"
+          }
+        }
+      }
+    },
+    "Labour": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manoperă"
+          }
+        }
+      }
+    },
+    "labour hours": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "orele de manoperă"
+          }
+        }
+      }
+    },
+    "labour rate": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tariful de manoperă"
+          }
+        }
+      }
+    },
+    "Labour, %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manoperă, %@"
+          }
+        }
+      }
+    },
+    "Labour, %@ h": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manoperă, %@ h"
+          }
+        }
+      }
+    },
+    "Length": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lungime"
+          }
+        }
+      }
+    },
+    "Less waste": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mai puține pierderi"
+          }
+        }
+      }
+    },
+    "LiDAR": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LiDAR"
+          }
+        }
+      }
+    },
+    "LiDAR scanner available": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scaner LiDAR disponibil"
+          }
+        }
+      }
+    },
+    "Litres per can": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Litri pe cutie"
+          }
+        }
+      }
+    },
+    "Loading prices…": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se încarcă prețurile…"
+          }
+        }
+      }
+    },
+    "Logo": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo"
+          }
+        }
+      }
+    },
+    "LOGO": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LOGO"
+          }
+        }
+      }
+    },
+    "m² per box": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "m² pe cutie"
+          }
+        }
+      }
+    },
+    "Made with RoomQuote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Realizat cu RoomQuote"
+          }
+        }
+      }
+    },
+    "Manage subscription": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestionează abonamentul"
+          }
+        }
+      }
+    },
+    "Materials & labour": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Materiale și manoperă"
+          }
+        }
+      }
+    },
+    "Materials priced at today's supplier rates.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Materiale la prețurile de azi ale furnizorilor."
+          }
+        }
+      }
+    },
+    "Measure the floor from wall to wall, and the height from floor to ceiling.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Măsoară podeaua de la perete la perete, iar înălțimea de la podea la tavan."
+          }
+        }
+      }
+    },
+    "Measurements saved, no prices yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Măsurători salvate, fără prețuri încă"
+          }
+        }
+      }
+    },
+    "Metric (m, m², L)": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metric (m, m², L)"
+          }
+        }
+      }
+    },
+    "month": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lună"
+          }
+        }
+      }
+    },
+    "Monthly": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lunar"
+          }
+        }
+      }
+    },
+    "More coats": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mai multe straturi"
+          }
+        }
+      }
+    },
+    "More waste": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mai multe pierderi"
+          }
+        }
+      }
+    },
+    "Move slowly along the walls. Point at the corners.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mergi încet de-a lungul pereților. Îndreaptă telefonul spre colțuri."
+          }
+        }
+      }
+    },
+    "Must be more than 0": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trebuie să fie mai mare decât 0"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nume"
+          }
+        }
+      }
+    },
+    "Name, e.g. Wall paint 5 L": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nume, de exemplu Vopsea lavabilă 5 L"
+          }
+        }
+      }
+    },
+    "New client": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Client nou"
+          }
+        }
+      }
+    },
+    "New price": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preț nou"
+          }
+        }
+      }
+    },
+    "New quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofertă nouă"
+          }
+        }
+      }
+    },
+    "New room": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cameră nouă"
+          }
+        }
+      }
+    },
+    "No active RoomQuote Pro subscription was found for this Apple Account.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-a găsit niciun abonament RoomQuote Pro activ pentru acest cont Apple."
+          }
+        }
+      }
+    },
+    "No clients yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niciun client încă"
+          }
+        }
+      }
+    },
+    "No coats selected.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niciun strat selectat."
+          }
+        }
+      }
+    },
+    "No LiDAR": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fără LiDAR"
+          }
+        }
+      }
+    },
+    "No LiDAR scanner": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fără scaner LiDAR"
+          }
+        }
+      }
+    },
+    "No LiDAR? Enter measurements": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fără LiDAR? Introdu măsurătorile"
+          }
+        }
+      }
+    },
+    "No price for %@. Add one in Prices.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu există preț pentru %@. Adaugă-l în Prețuri."
+          }
+        }
+      }
+    },
+    "No prices yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niciun preț încă"
+          }
+        }
+      }
+    },
+    "No quotes yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicio ofertă încă"
+          }
+        }
+      }
+    },
+    "No room yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicio cameră încă"
+          }
+        }
+      }
+    },
+    "No walls were found. Scan again, moving slowly along every wall, or enter the measurements instead.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-au găsit pereți. Scanează din nou, mergând încet de-a lungul fiecărui perete, sau introdu măsurătorile."
+          }
+        }
+      }
+    },
+    "Notes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note"
+          }
+        }
+      }
+    },
+    "Nothing to restore": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nimic de restaurat"
+          }
+        }
+      }
+    },
+    "number of openings": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "numărul de goluri"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "Opening": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gol"
+          }
+        }
+      }
+    },
+    "Opening %lld is bigger than the wall, so it was limited to the wall size.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Golul %lld e mai mare decât peretele, așa că a fost limitat la dimensiunea peretelui."
+          }
+        }
+      }
+    },
+    "opening height": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "înălțimea golului"
+          }
+        }
+      }
+    },
+    "opening width": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lățimea golului"
+          }
+        }
+      }
+    },
+    "Openings": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Goluri"
+          }
+        }
+      }
+    },
+    "Openings cover more than the walls. Wall area is set to 0.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Golurile depășesc suprafața pereților. Suprafața pereților este setată la 0."
+          }
+        }
+      }
+    },
+    "Opens room and materials": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deschide camera și materialele"
+          }
+        }
+      }
+    },
+    "Opens the quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deschide oferta"
+          }
+        }
+      }
+    },
+    "Opens the share sheet with the quote PDF. Choose WhatsApp.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deschide meniul de partajare cu PDF-ul ofertei. Alege WhatsApp."
+          }
+        }
+      }
+    },
+    "Other": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altele"
+          }
+        }
+      }
+    },
+    "Outline of the room being scanned": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conturul camerei care se scanează"
+          }
+        }
+      }
+    },
+    "Paid": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plătită"
+          }
+        }
+      }
+    },
+    "Paint": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vopsea"
+          }
+        }
+      }
+    },
+    "Painting": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugrăveli"
+          }
+        }
+      }
+    },
+    "Payment terms shown on quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condiții de plată afișate pe oferte"
+          }
+        }
+      }
+    },
+    "per box": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pe cutie"
+          }
+        }
+      }
+    },
+    "per can": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pe cutie"
+          }
+        }
+      }
+    },
+    "per hour": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pe oră"
+          }
+        }
+      }
+    },
+    "per m²": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pe m²"
+          }
+        }
+      }
+    },
+    "period": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "perioadă"
+          }
+        }
+      }
+    },
+    "Phone": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telefon"
+          }
+        }
+      }
+    },
+    "price": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "prețul"
+          }
+        }
+      }
+    },
+    "Price": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preț"
+          }
+        }
+      }
+    },
+    "Prices": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prețuri"
+          }
+        }
+      }
+    },
+    "Privacy": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confidențialitate"
+          }
+        }
+      }
+    },
+    "Purchase not completed": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cumpărarea nu s-a finalizat"
+          }
+        }
+      }
+    },
+    "quantity": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "cantitatea"
+          }
+        }
+      }
+    },
+    "Quote": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofertă"
+          }
+        }
+      }
+    },
+    "QUOTE": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OFERTĂ"
+          }
+        }
+      }
+    },
+    "Quote %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oferta %@"
+          }
+        }
+      }
+    },
+    "Quote on the spot.\nWin more jobs.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofertă pe loc.\nMai multe lucrări câștigate."
+          }
+        }
+      }
+    },
+    "Quote status": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starea ofertei"
+          }
+        }
+      }
+    },
+    "Quote tracking: sent, accepted, paid": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Urmărirea ofertelor: trimisă, acceptată, plătită"
+          }
+        }
+      }
+    },
+    "Quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oferte"
+          }
+        }
+      }
+    },
+    "Recent": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recente"
+          }
+        }
+      }
+    },
+    "Remove %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimină %@"
+          }
+        }
+      }
+    },
+    "Remove logo": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimină logo-ul"
+          }
+        }
+      }
+    },
+    "Rename the room": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redenumește camera"
+          }
+        }
+      }
+    },
+    "Required": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obligatoriu"
+          }
+        }
+      }
+    },
+    "Restore failed": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurarea a eșuat"
+          }
+        }
+      }
+    },
+    "Restore purchases": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurează cumpărăturile"
+          }
+        }
+      }
+    },
+    "Result": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rezultat"
+          }
+        }
+      }
+    },
+    "Room": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cameră"
+          }
+        }
+      }
+    },
+    "Room (%@)": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cameră (%@)"
+          }
+        }
+      }
+    },
+    "room height": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "înălțimea camerei"
+          }
+        }
+      }
+    },
+    "room length": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lungimea camerei"
+          }
+        }
+      }
+    },
+    "Room name": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numele camerei"
+          }
+        }
+      }
+    },
+    "Room name, e.g. Living room": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numele camerei, de exemplu Living"
+          }
+        }
+      }
+    },
+    "Room scanning needs a LiDAR sensor. Enter the room's length, width and height instead; it takes about a minute.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanarea camerei necesită un senzor LiDAR. Introdu lungimea, lățimea și înălțimea camerei; durează cam un minut."
+          }
+        }
+      }
+    },
+    "Room scanning needs an iPhone or iPad with LiDAR. Enter the measurements instead.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanarea camerei necesită un iPhone sau iPad cu LiDAR. Introdu măsurătorile."
+          }
+        }
+      }
+    },
+    "room width": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lățimea camerei"
+          }
+        }
+      }
+    },
+    "RoomQuote couldn't open its database. Free up some storage and restart the app.\n\n%@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RoomQuote nu și-a putut deschide baza de date. Eliberează spațiu de stocare și repornește aplicația.\n\n%@"
+          }
+        }
+      }
+    },
+    "RoomQuote Pro is active": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RoomQuote Pro este activ"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvează"
+          }
+        }
+      }
+    },
+    "Save %lld%%": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Economisești %lld%%"
+          }
+        }
+      }
+    },
+    "Save PDF": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvează PDF"
+          }
+        }
+      }
+    },
+    "Saved price lists for paint, floors and tiles": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liste de prețuri salvate pentru vopsea, pardoseli și faianță"
+          }
+        }
+      }
+    },
+    "Saves the quote PDF to Files.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvează PDF-ul ofertei în Fișiere."
+          }
+        }
+      }
+    },
+    "Scan a room or enter measurements": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanează o cameră sau introdu măsurătorile"
+          }
+        }
+      }
+    },
+    "Scan failed": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanarea a eșuat"
+          }
+        }
+      }
+    },
+    "Scan saved, no prices yet": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanare salvată, fără prețuri încă"
+          }
+        }
+      }
+    },
+    "Search quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caută oferte"
+          }
+        }
+      }
+    },
+    "See all": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vezi tot"
+          }
+        }
+      }
+    },
+    "Send on WhatsApp": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trimite pe WhatsApp"
+          }
+        }
+      }
+    },
+    "Sent": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trimisă"
+          }
+        }
+      }
+    },
+    "Sent this month": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trimise luna asta"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configurări"
+          }
+        }
+      }
+    },
+    "Something went wrong": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ceva n-a mers bine"
+          }
+        }
+      }
+    },
+    "Square feet in one box.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Picioare pătrate într-o cutie."
+          }
+        }
+      }
+    },
+    "Square feet one gallon covers, per coat.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Picioare pătrate acoperite de un galon, pe strat."
+          }
+        }
+      }
+    },
+    "Square metres in one box.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri pătrați într-o cutie."
+          }
+        }
+      }
+    },
+    "Square metres one litre covers, per coat.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri pătrați acoperiți de un litru, pe strat."
+          }
+        }
+      }
+    },
+    "Start %lld-day free trial": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Începe perioada gratuită de %lld zile"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stare"
+          }
+        }
+      }
+    },
+    "Status: %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stare: %@"
+          }
+        }
+      }
+    },
+    "Subscribe": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonează-te"
+          }
+        }
+      }
+    },
+    "Subscription": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonament"
+          }
+        }
+      }
+    },
+    "Subtotal": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subtotal"
+          }
+        }
+      }
+    },
+    "Subtotal: %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subtotal: %@"
+          }
+        }
+      }
+    },
+    "Tap New quote to scan a room or enter its measurements.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apasă Ofertă nouă ca să scanezi o cameră sau să-i introduci măsurătorile."
+          }
+        }
+      }
+    },
+    "Terms": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termeni"
+          }
+        }
+      }
+    },
+    "That image couldn't be opened.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imaginea nu a putut fi deschisă."
+          }
+        }
+      }
+    },
+    "That's larger than a room. Check the units (%@).": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E mai mare decât o cameră. Verifică unitatea (%@)."
+          }
+        }
+      }
+    },
+    "The App Store couldn't verify this purchase.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Store nu a putut verifica această cumpărare."
+          }
+        }
+      }
+    },
+    "These are taken off the wall area.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acestea se scad din suprafața pereților."
+          }
+        }
+      }
+    },
+    "This iPhone can't scan rooms": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acest iPhone nu poate scana camere"
+          }
+        }
+      }
+    },
+    "Tiles": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faianță"
+          }
+        }
+      }
+    },
+    "Total": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total"
+          }
+        }
+      }
+    },
+    "Total: %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total: %@"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Încearcă din nou"
+          }
+        }
+      }
+    },
+    "Type": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tip"
+          }
+        }
+      }
+    },
+    "Units": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unități"
+          }
+        }
+      }
+    },
+    "Unlimited quotes.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oferte nelimitate."
+          }
+        }
+      }
+    },
+    "Unlimited room scans and quotes": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scanări și oferte nelimitate"
+          }
+        }
+      }
+    },
+    "Untitled": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fără nume"
+          }
+        }
+      }
+    },
+    "Upgrade to Pro": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Treci la Pro"
+          }
+        }
+      }
+    },
+    "Used for": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folosit pentru"
+          }
+        }
+      }
+    },
+    "Valid for %lld days": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valabilă %lld zile"
+          }
+        }
+      }
+    },
+    "Valid for %lld days.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valabilă %lld zile."
+          }
+        }
+      }
+    },
+    "Value": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valoare"
+          }
+        }
+      }
+    },
+    "VAT / company number": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CUI / nr. de înregistrare"
+          }
+        }
+      }
+    },
+    "VAT %@%%": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TVA %@%%"
+          }
+        }
+      }
+    },
+    "VAT %@%%: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "VAT %1$@%%: %2$@"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TVA %1$@%%: %2$@"
+          }
+        }
+      }
+    },
+    "VAT no. %@": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CUI %@"
+          }
+        }
+      }
+    },
+    "VAT rate": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "cota de TVA"
+          }
+        }
+      }
+    },
+    "VAT rate (%)": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cota TVA (%)"
+          }
+        }
+      }
+    },
+    "Wall paint": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vopsea lavabilă"
+          }
+        }
+      }
+    },
+    "Walls": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pereți"
+          }
+        }
+      }
+    },
+    "waste": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pierderile"
+          }
+        }
+      }
+    },
+    "Waste allowance": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marjă de pierderi"
+          }
+        }
+      }
+    },
+    "week": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "săptămână"
+          }
+        }
+      }
+    },
+    "Width": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lățime"
+          }
+        }
+      }
+    },
+    "Win rate": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rată de câștig"
+          }
+        }
+      }
+    },
+    "Window": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fereastră"
+          }
+        }
+      }
+    },
+    "Writes an email with the quote PDF attached.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrie un email cu PDF-ul ofertei atașat."
+          }
+        }
+      }
+    },
+    "year": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "an"
+          }
+        }
+      }
+    },
+    "Yearly": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anual"
+          }
+        }
+      }
+    },
+    "You're on Pro. Thank you!": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ai Pro. Mulțumim!"
+          }
+        }
+      }
+    },
+    "Your logo appears on quotes with Pro": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo-ul tău apare pe oferte cu Pro"
+          }
+        }
+      }
+    },
+    "Your logo on every PDF": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo-ul tău pe fiecare PDF"
+          }
+        }
+      }
+    },
+    "Your price list is empty": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lista de prețuri e goală"
+          }
+        }
+      }
+    },
+    "Your purchase is waiting for approval. Pro unlocks as soon as it's approved.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cumpărarea așteaptă aprobare. Pro se deblochează imediat ce e aprobată."
+          }
+        }
+      }
+    },
+    "Your quotes, clients and prices are stored only on this iPhone. RoomQuote has no account and sends nothing to a server.": {
+      "localizations": {
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofertele, clienții și prețurile tale sunt salvate doar pe acest iPhone. RoomQuote nu are cont și nu trimite nimic către un server."
+          }
+        }
+      }
+    },
+    "stat.accepted": {
+      "comment": "Stat card: number of quotes accepted this month",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accepted"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceptate"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
