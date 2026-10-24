@@ -258,7 +258,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@ necesari · %2$lld × %3$@ cutii"
+            "value": "%1$@ necesari · %2$lld × %3$@"
           }
         }
       }
@@ -536,7 +536,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "1 cutie"
+            "value": "1 găleată"
           }
         }
       }
@@ -816,7 +816,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "mărimea cutiei"
+            "value": "mărimea găleții"
           }
         }
       }
@@ -1552,7 +1552,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "Litri pe cutie"
+            "value": "Litri pe găleată"
           }
         }
       }
@@ -2102,7 +2102,7 @@
         "ro": {
           "stringUnit": {
             "state": "translated",
-            "value": "pe cutie"
+            "value": "pe găleată"
           }
         }
       }
