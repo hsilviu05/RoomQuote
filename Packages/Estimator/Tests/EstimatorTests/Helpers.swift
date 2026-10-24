@@ -15,7 +15,7 @@ let sanityRoom = RoomDimensions(
     width: d("3.6"),
     height: d("2.6"),
     openings: [
-        Opening(kind: .door, width: d("0.9"), height: d("2.1")),
-        Opening(kind: .window, width: d("1.2"), height: d("1.4"), quantity: 2)
+        OpeningDimensions(kind: .door, width: d("0.9"), height: d("2.1")),
+        OpeningDimensions(kind: .window, width: d("1.2"), height: d("1.4"), quantity: 2)
     ]
 )

@@ -39,7 +39,7 @@ struct JobTests {
     func combinedWarnings() throws {
         var input = job(.paint)
         input.paint.coats = 0
-        input.room.openings.append(Opening(kind: .other, width: 9, height: 1))
+        input.room.openings.append(OpeningDimensions(kind: .other, width: 9, height: 1))
         let estimate = try Estimator.estimate(input)
         #expect(estimate.warnings == [.openingClamped(index: 2), .noCoats])
     }

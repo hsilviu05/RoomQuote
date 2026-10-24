@@ -4,7 +4,7 @@ public enum QuantityUnit: String, Sendable, CaseIterable, Codable {
     case litre, squareMetre, can, box, hour, item
 }
 
-public struct LineItem: Hashable, Sendable {
+public struct PricedLine: Hashable, Sendable {
     public enum Kind: String, Sendable, CaseIterable, Codable {
         case material, labour, other
     }
@@ -46,7 +46,7 @@ public struct QuoteTotals: Equatable, Sendable {
 }
 
 extension Estimator {
-    public static func totals(for lines: [LineItem], vat: VATSetting) throws -> QuoteTotals {
+    public static func totals(for lines: [PricedLine], vat: VATSetting) throws -> QuoteTotals {
         for line in lines {
             try Validate.nonNegative(line.quantity, .quantity)
             try Validate.nonNegative(line.unitPrice, .unitPrice)

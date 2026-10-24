@@ -10,16 +10,16 @@ public enum LabourPricing: Hashable, Sendable {
 extension Estimator {
     /// The labour line for a job. Per-m² quantity is rounded to 2 dp first,
     /// so the quantity shown on the quote times the rate equals the line total.
-    public static func labourLine(_ pricing: LabourPricing, area: Decimal, title: String) throws -> LineItem {
+    public static func labourLine(_ pricing: LabourPricing, area: Decimal, title: String) throws -> PricedLine {
         switch pricing {
         case let .perSquareMetre(rate):
             try Validate.nonNegative(rate, .labourRate)
             try Validate.nonNegative(area, .quantity)
-            return LineItem(title: title, kind: .labour, quantity: area.rounded(scale: 2), unit: .squareMetre, unitPrice: rate)
+            return PricedLine(title: title, kind: .labour, quantity: area.rounded(scale: 2), unit: .squareMetre, unitPrice: rate)
         case let .perHour(rate, hours):
             try Validate.nonNegative(rate, .labourRate)
             try Validate.nonNegative(hours, .labourHours)
-            return LineItem(title: title, kind: .labour, quantity: hours, unit: .hour, unitPrice: rate)
+            return PricedLine(title: title, kind: .labour, quantity: hours, unit: .hour, unitPrice: rate)
         }
     }
 }

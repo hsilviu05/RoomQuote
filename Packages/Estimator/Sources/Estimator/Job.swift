@@ -46,7 +46,7 @@ public struct JobEstimate: Equatable, Sendable {
     public var workArea: Decimal
     public var paint: PaintEstimate?
     public var covering: CoveringEstimate?
-    public var lineItems: [LineItem]
+    public var lineItems: [PricedLine]
     public var warnings: [EstimatorWarning]
 }
 
@@ -60,7 +60,7 @@ extension Estimator {
         var paintEstimate: PaintEstimate?
         var coveringEstimate: CoveringEstimate?
         let workArea: Decimal
-        let material: LineItem
+        let material: PricedLine
 
         switch job.type {
         case .paint:
@@ -68,12 +68,12 @@ extension Estimator {
             let paint = try paint(area: workArea, spec: job.paint)
             warnings += paint.warnings
             paintEstimate = paint
-            material = LineItem(title: job.materialTitle, kind: .material, quantity: Decimal(paint.cans), unit: .can, unitPrice: job.materialUnitPrice)
+            material = PricedLine(title: job.materialTitle, kind: .material, quantity: Decimal(paint.cans), unit: .can, unitPrice: job.materialUnitPrice)
         case .floor, .tiles:
             workArea = floor
             let covering = try covering(area: workArea, spec: job.covering)
             coveringEstimate = covering
-            material = LineItem(title: job.materialTitle, kind: .material, quantity: Decimal(covering.packs), unit: .box, unitPrice: job.materialUnitPrice)
+            material = PricedLine(title: job.materialTitle, kind: .material, quantity: Decimal(covering.packs), unit: .box, unitPrice: job.materialUnitPrice)
         }
 
         let labour = try labourLine(job.labour, area: workArea, title: job.labourTitle)

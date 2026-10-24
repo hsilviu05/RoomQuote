@@ -31,8 +31,8 @@ struct TotalsTests {
     }
 
     let lines = [
-        LineItem(title: "Paint 5 L", kind: .material, quantity: 2, unit: .can, unitPrice: d("189.90")),
-        LineItem(title: "Labour", kind: .labour, quantity: d("35.31"), unit: .squareMetre, unitPrice: d("22.5"))
+        PricedLine(title: "Paint 5 L", kind: .material, quantity: 2, unit: .can, unitPrice: d("189.90")),
+        PricedLine(title: "Labour", kind: .labour, quantity: d("35.31"), unit: .squareMetre, unitPrice: d("22.5"))
     ]
 
     @Test("Subtotal sums lines rounded to cents")
@@ -59,9 +59,9 @@ struct TotalsTests {
 
     @Test("Half a cent rounds up")
     func halfCentRoundsUp() throws {
-        let line = LineItem(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("0.125"))
+        let line = PricedLine(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("0.125"))
         #expect(line.total == d("0.13"))
-        let totals = try Estimator.totals(for: [LineItem(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("10.50"))],
+        let totals = try Estimator.totals(for: [PricedLine(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("10.50"))],
                                           vat: VATSetting(isEnabled: true, ratePercent: d("5")))
         #expect(totals.vat == d("0.53")) // 0.525
     }
@@ -75,10 +75,10 @@ struct TotalsTests {
     @Test("Negative prices, quantities and VAT rates are rejected")
     func negatives() {
         #expect(throws: EstimatorError.negative(.unitPrice)) {
-            try Estimator.totals(for: [LineItem(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("-1"))], vat: .off)
+            try Estimator.totals(for: [PricedLine(title: "x", kind: .other, quantity: 1, unit: .item, unitPrice: d("-1"))], vat: .off)
         }
         #expect(throws: EstimatorError.negative(.quantity)) {
-            try Estimator.totals(for: [LineItem(title: "x", kind: .other, quantity: d("-1"), unit: .item, unitPrice: 1)], vat: .off)
+            try Estimator.totals(for: [PricedLine(title: "x", kind: .other, quantity: d("-1"), unit: .item, unitPrice: 1)], vat: .off)
         }
         #expect(throws: EstimatorError.negative(.vatRate)) {
             try Estimator.totals(for: [], vat: VATSetting(isEnabled: true, ratePercent: d("-20")))

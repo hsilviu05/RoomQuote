@@ -26,14 +26,14 @@ struct GeometryTests {
     @Test("Opening quantity multiplies its area")
     func openingQuantity() throws {
         let room = RoomDimensions(length: d("5"), width: d("4"), height: d("2.5"),
-                                  openings: [Opening(kind: .window, width: d("1"), height: d("1"), quantity: 3)])
+                                  openings: [OpeningDimensions(kind: .window, width: d("1"), height: d("1"), quantity: 3)])
         #expect(try Estimator.wallArea(of: room).openings == d("3"))
     }
 
     @Test("Opening wider than the longest wall is clamped with a warning")
     func openingWiderThanWall() throws {
         let room = RoomDimensions(length: d("3"), width: d("2"), height: d("2.5"),
-                                  openings: [Opening(kind: .other, width: d("5"), height: d("2"))])
+                                  openings: [OpeningDimensions(kind: .other, width: d("5"), height: d("2"))])
         let walls = try Estimator.wallArea(of: room)
         #expect(walls.openings == d("6")) // 3 m (longest wall) × 2 m
         #expect(walls.net == d("19"))     // 25 − 6
@@ -44,8 +44,8 @@ struct GeometryTests {
     func openingTallerThanRoom() throws {
         let room = RoomDimensions(length: d("4"), width: d("4"), height: d("2.4"),
                                   openings: [
-                                      Opening(kind: .door, width: d("0.8"), height: d("2")),
-                                      Opening(kind: .door, width: d("1"), height: d("3"))
+                                      OpeningDimensions(kind: .door, width: d("0.8"), height: d("2")),
+                                      OpeningDimensions(kind: .door, width: d("1"), height: d("3"))
                                   ])
         let walls = try Estimator.wallArea(of: room)
         #expect(walls.openings == d("4")) // 1.6 + 1 × 2.4
@@ -55,7 +55,7 @@ struct GeometryTests {
     @Test("Openings bigger than all the wall clamp net area to zero")
     func openingsExceedWalls() throws {
         let room = RoomDimensions(length: d("2"), width: d("2"), height: d("2"),
-                                  openings: [Opening(kind: .window, width: d("2"), height: d("2"), quantity: 5)])
+                                  openings: [OpeningDimensions(kind: .window, width: d("2"), height: d("2"), quantity: 5)])
         let walls = try Estimator.wallArea(of: room)
         #expect(walls.gross == d("16"))
         #expect(walls.openings == d("20"))
@@ -80,9 +80,9 @@ struct GeometryTests {
         (RoomDimensions(length: d("4"), width: d("-3"), height: d("2.5")), .roomWidth),
         (RoomDimensions(length: d("4"), width: d("3"), height: d("-2.5")), .roomHeight),
         (RoomDimensions(length: d("4"), width: d("3"), height: d("2.5"),
-                        openings: [Opening(kind: .door, width: d("-0.9"), height: d("2"))]), .openingWidth),
+                        openings: [OpeningDimensions(kind: .door, width: d("-0.9"), height: d("2"))]), .openingWidth),
         (RoomDimensions(length: d("4"), width: d("3"), height: d("2.5"),
-                        openings: [Opening(kind: .door, width: d("0.9"), height: d("2"), quantity: -1)]), .openingQuantity)
+                        openings: [OpeningDimensions(kind: .door, width: d("0.9"), height: d("2"), quantity: -1)]), .openingQuantity)
     ])
     func negativeRejected(room: RoomDimensions, field: EstimatorField) {
         #expect(throws: EstimatorError.negative(field)) { try Estimator.wallArea(of: room) }

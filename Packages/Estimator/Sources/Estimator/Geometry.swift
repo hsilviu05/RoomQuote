@@ -1,7 +1,7 @@
 import Foundation
 
 /// A door, window or other gap in the walls. Sizes are in metres.
-public struct Opening: Hashable, Sendable {
+public struct OpeningDimensions: Hashable, Sendable {
     public enum Kind: String, Sendable, CaseIterable, Codable {
         case door, window, other
     }
@@ -24,9 +24,9 @@ public struct RoomDimensions: Hashable, Sendable {
     public var length: Decimal
     public var width: Decimal
     public var height: Decimal
-    public var openings: [Opening]
+    public var openings: [OpeningDimensions]
 
-    public init(length: Decimal, width: Decimal, height: Decimal, openings: [Opening] = []) {
+    public init(length: Decimal, width: Decimal, height: Decimal, openings: [OpeningDimensions] = []) {
         self.length = length
         self.width = width
         self.height = height
