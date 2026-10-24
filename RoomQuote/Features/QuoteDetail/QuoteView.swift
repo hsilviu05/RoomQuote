@@ -111,6 +111,8 @@ struct QuoteView: View {
         .padding(.vertical, 22)
         .background(Theme.surface, in: RoundedRectangle(cornerRadius: 8))
         .shadow(color: Color(hex: 0x101318).opacity(0.12), radius: 12, y: 6)
+        // The preview stands for the printed quote, so it stays on white paper in dark mode.
+        .environment(\.colorScheme, .light)
         .accessibilityElement(children: .contain)
     }
 

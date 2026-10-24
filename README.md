@@ -32,6 +32,14 @@ App tests (SwiftData models and view models) run on a simulator:
 xcodebuild test -project RoomQuote.xcodeproj -scheme RoomQuote -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
+## Sample data and screen shortcuts (Debug builds only)
+
+On first launch, Debug builds fill an empty store with the clients, prices and quotes from the designs. Launch arguments (Product › Scheme › Edit Scheme › Arguments):
+
+- `-noSampleData`: start empty
+- `-inMemoryStore`: don't touch the on-disk store
+- `-route scan|manual|materials|quote|paywall`: open that screen directly
+
 ## Project layout
 
 | Path | Contents |

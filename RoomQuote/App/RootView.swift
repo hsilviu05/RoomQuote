@@ -3,6 +3,7 @@ import SwiftData
 
 struct RootView: View {
     @Environment(AppModel.self) private var appModel
+    @Environment(\.modelContext) private var context
 
     var body: some View {
         @Bindable var appModel = appModel
@@ -32,6 +33,9 @@ struct RootView: View {
         .sheet(isPresented: $appModel.isPaywallPresented) {
             PaywallView()
         }
+        #if DEBUG
+        .task { DebugLaunch.apply(to: appModel, context: context) }
+        #endif
     }
 
     @ViewBuilder

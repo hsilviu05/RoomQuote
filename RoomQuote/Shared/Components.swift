@@ -59,6 +59,7 @@ struct StatCard: View {
                 .lineLimit(1)
             if order == .valueFirst { labelText }
         }
+        .frame(maxHeight: .infinity, alignment: .topLeading)
         .card(padding: 12)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text("\(label): \(value)"))
@@ -81,6 +82,7 @@ struct StatRow<Content: View>: View {
             VStack(spacing: 8) { content }
         } else {
             HStack(alignment: .top, spacing: 8) { content }
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -99,7 +101,8 @@ struct CircleIconButton: View {
             Image(systemName: systemImage)
                 .font(.body.weight(.semibold))
                 .foregroundStyle(style == .light ? Theme.textPrimary : .white)
-                .frame(width: 44, height: 44)
+                .padding(10)
+                .frame(minWidth: 44, minHeight: 44)
                 .background(style == .light ? Theme.surface : Color.white.opacity(0.12), in: Circle())
                 .overlay {
                     if style == .light { Circle().strokeBorder(Theme.strongBorder) }

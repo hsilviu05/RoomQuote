@@ -50,7 +50,7 @@ enum QuoteText {
 
     static func validityText(quote: Quote, now: Date = .now, calendar: Calendar = .current) -> String? {
         guard let validUntil = quote.validUntil else { return nil }
-        let start = calendar.startOfDay(for: quote.createdAt)
+        let start = calendar.startOfDay(for: quote.sentAt ?? quote.createdAt)
         let days = calendar.dateComponents([.day], from: start, to: calendar.startOfDay(for: validUntil)).day ?? 0
         guard days > 0 else { return nil }
         return String(localized: "Valid for \(days) days.")
