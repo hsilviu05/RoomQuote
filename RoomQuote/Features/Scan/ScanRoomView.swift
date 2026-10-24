@@ -7,8 +7,10 @@ struct ScanRoomView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isFinishing = false
     @State private var errorMessage: String?
+    @State private var capture = RoomCaptureController()
 
-    private var canScan: Bool { appModel.scanner.isAvailable }
+    private var mode: ScanMode { appModel.scanMode }
+    private var canScan: Bool { mode != .unavailable }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,6 +24,8 @@ struct ScanRoomView: View {
         .environment(\.colorScheme, .dark)
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
+        .onAppear { if mode == .live { capture.start() } }
+        .onDisappear { capture.cancel() }
         .alert("Scan failed", isPresented: .constant(errorMessage != nil), presenting: errorMessage) { _ in
             Button("OK") { errorMessage = nil }
         } message: { message in
@@ -31,20 +35,23 @@ struct ScanRoomView: View {
 
     private var header: some View {
         HStack {
-            CircleIconButton(systemImage: "xmark", label: "Cancel scan", style: .onDark) { dismiss() }
+            CircleIconButton(systemImage: "xmark", label: "Cancel scan", style: .onDark) {
+                capture.cancel()
+                dismiss()
+            }
             Spacer()
             Text("New room")
                 .font(.headline.weight(.heavy))
                 .foregroundStyle(.white)
                 .accessibilityAddTraits(.isHeader)
             Spacer()
-            Text(canScan ? "LiDAR" : "No LiDAR")
+            Text(mode == .live ? "LiDAR" : (mode == .demo ? "Demo" : "No LiDAR"))
                 .font(.caption.weight(.heavy))
-                .foregroundStyle(canScan ? Color(hex: 0x86EFAC) : Theme.scanSecondary)
+                .foregroundStyle(mode == .live ? Color(hex: 0x86EFAC) : Theme.scanSecondary)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)
-                .background(canScan ? Color(hex: 0x22C55E).opacity(0.18) : Color.white.opacity(0.12), in: Capsule())
-                .accessibilityLabel(canScan ? Text("LiDAR scanner available") : Text("No LiDAR scanner"))
+                .background(mode == .live ? Color(hex: 0x22C55E).opacity(0.18) : Color.white.opacity(0.12), in: Capsule())
+                .accessibilityLabel(mode == .live ? Text("LiDAR scanner available") : Text("No LiDAR scanner"))
         }
         .padding(.horizontal, 16)
         .padding(.top, 8)
@@ -54,30 +61,17 @@ struct ScanRoomView: View {
     private var viewport: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 24).fill(Theme.scanViewport)
-            if canScan {
-                // STUB: the live RoomCaptureView goes here in the RoomPlan step.
+            if mode == .live {
+                RoomCaptureViewRepresentable(controller: capture)
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .accessibilityLabel(Text("Camera view of the room being scanned"))
+                scanOverlay(walls: capture.wallCount, windows: capture.windowCount, doors: capture.doorCount)
+            } else if mode == .demo {
                 RoomOutline()
                     .padding(32)
                     .accessibilityElement()
                     .accessibilityLabel(Text("Outline of the room being scanned"))
-                VStack {
-                    HStack(spacing: 6) {
-                        ScanChip(text: String(localized: "4 walls"), foreground: 0xFDBA74, background: 0xFB923C)
-                        ScanChip(text: String(localized: "2 windows"), foreground: 0x93C5FD, background: 0x60A5FA)
-                        ScanChip(text: String(localized: "1 door"), foreground: 0xC4B5FD, background: 0xA78BFA)
-                        Spacer(minLength: 0)
-                    }
-                    Spacer()
-                    Text("Move slowly along the walls. Point at the corners.")
-                        .font(.subheadline.weight(.bold))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 14)
-                        .frame(maxWidth: .infinity)
-                        .background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 14))
-                }
-                .padding(16)
+                scanOverlay(walls: 4, windows: 2, doors: 1)
             } else {
                 VStack(spacing: 12) {
                     Image(systemName: "ruler")
@@ -98,18 +92,33 @@ struct ScanRoomView: View {
         .frame(maxHeight: .infinity)
     }
 
+    private func scanOverlay(walls: Int, windows: Int, doors: Int) -> some View {
+        VStack {
+            HStack(spacing: 6) {
+                ScanChip(text: walls == 1 ? String(localized: "1 wall") : String(localized: "\(walls) walls"), foreground: 0xFDBA74, background: 0xFB923C)
+                ScanChip(text: windows == 1 ? String(localized: "1 window") : String(localized: "\(windows) windows"), foreground: 0x93C5FD, background: 0x60A5FA)
+                ScanChip(text: doors == 1 ? String(localized: "1 door") : String(localized: "\(doors) doors"), foreground: 0xC4B5FD, background: 0xA78BFA)
+                Spacer(minLength: 0)
+            }
+            .accessibilityElement(children: .combine)
+            Spacer()
+            Text(mode == .demo
+                 ? String(localized: "Demo scan: this device has no LiDAR, so sample measurements are used.")
+                 : String(localized: "Move slowly along the walls. Point at the corners."))
+                .font(.subheadline.weight(.bold))
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 14)
+                .frame(maxWidth: .infinity)
+                .background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 14))
+        }
+        .padding(16)
+    }
+
     private var footer: some View {
         VStack(spacing: 10) {
             if canScan {
-                HStack {
-                    Text("Floor 4.2 × 3.6 m")
-                    Spacer()
-                    Text("Height 2.6 m")
-                }
-                .font(.footnote.weight(.bold))
-                .foregroundStyle(Theme.scanSecondary)
-                .accessibilityElement(children: .combine)
-
                 Button {
                     Task { await finishScan() }
                 } label: {
@@ -140,7 +149,7 @@ struct ScanRoomView: View {
         isFinishing = true
         defer { isFinishing = false }
         do {
-            let scanned = try await appModel.scanner.finishScan()
+            let scanned = mode == .live ? try await capture.finish() : DemoScan.room
             let quote = try QuoteBuilder.createDraft(
                 roomName: "",
                 clientName: "",
@@ -196,4 +205,19 @@ private struct RoomOutline: View {
             context.stroke(polygon([p(255, 170), p(280, 180), p(280, 270), p(255, 262)]), with: .color(Color(hex: 0xA78BFA)), lineWidth: 2.5)
         }
     }
+}
+
+/// Hosts RoomPlan's camera view. On the simulator this is an empty view (live mode never appears there).
+private struct RoomCaptureViewRepresentable: UIViewRepresentable {
+    let controller: RoomCaptureController
+
+    func makeUIView(context: Context) -> UIView {
+        #if canImport(RoomPlan) && !targetEnvironment(simulator)
+        controller.captureView
+        #else
+        UIView()
+        #endif
+    }
+
+    func updateUIView(_ view: UIView, context: Context) {}
 }

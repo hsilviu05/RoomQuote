@@ -32,6 +32,16 @@ App tests (SwiftData models and view models) run on a simulator:
 xcodebuild test -project RoomQuote.xcodeproj -scheme RoomQuote -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
+The StoreKit purchase test is opt-in because the simulator's test runner hangs for about 10 minutes after it (an `SKTestSession` quirk):
+
+```bash
+TEST_RUNNER_RUN_STOREKIT_TESTS=1 xcodebuild test -project RoomQuote.xcodeproj -scheme RoomQuote -destination 'platform=iOS Simulator,name=iPhone 17'
+```
+
+## In-app purchases while developing
+
+`StoreKit/RoomQuote.storekit` defines both subscriptions (monthly $14.99, yearly $119.99, 7-day free trial) with the product IDs in `SubscriptionConfig`. To buy in the simulator without App Store Connect: Product › Scheme › Edit Scheme › Run › Options › StoreKit Configuration › `RoomQuote.storekit`. Keep the IDs in sync with App Store Connect.
+
 ## Sample data and screen shortcuts (Debug builds only)
 
 On first launch, Debug builds fill an empty store with the clients, prices and quotes from the designs. Launch arguments (Product › Scheme › Edit Scheme › Arguments):
@@ -54,4 +64,4 @@ On first launch, Debug builds fill an empty store with the clients, prices and q
 
 ## Status
 
-Room scanning (RoomPlan) and the StoreKit paywall are stubs, marked `STUB:` in the code. Quotes export as A4 PDFs (share sheet, Mail, Files).
+Room scanning uses RoomPlan on LiDAR devices; other devices use manual entry, and Debug builds on the simulator use a demo scan. Quotes export as A4 PDFs (share sheet, Mail, Files). Pro is a StoreKit 2 subscription checked on the device.

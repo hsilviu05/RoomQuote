@@ -10,10 +10,25 @@ struct ScannedRoom: Equatable {
     var wallCount: Int
 }
 
-protocol RoomScanner: Sendable {
-    /// True when the device can scan (LiDAR). Otherwise the app offers manual entry only.
-    var isAvailable: Bool { get }
-    func finishScan() async throws -> ScannedRoom
+/// How the Scan screen behaves on this device.
+enum ScanMode: Equatable {
+    /// LiDAR device: live RoomPlan scan.
+    case live
+    /// Debug builds without LiDAR (simulator): a demo scan with sample measurements.
+    case demo
+    /// No LiDAR: manual entry only.
+    case unavailable
+
+    static var current: ScanMode {
+        #if canImport(RoomPlan) && !targetEnvironment(simulator)
+        if RoomCaptureSession.isSupported { return .live }
+        #endif
+        #if DEBUG
+        return .demo
+        #else
+        return .unavailable
+        #endif
+    }
 }
 
 enum RoomScannerError: LocalizedError {
@@ -24,38 +39,18 @@ enum RoomScannerError: LocalizedError {
     }
 }
 
-// STUB: replaced by a RoomPlan-backed scanner (RoomCaptureView + CapturedRoom) in the RoomPlan step.
-// It returns the sample room from the design so the flow can be tried end to end.
-struct StubRoomScanner: RoomScanner {
-    var isAvailable: Bool {
-        #if DEBUG
-        true
-        #else
-        Self.deviceSupportsRoomPlan
-        #endif
-    }
-
-    static var deviceSupportsRoomPlan: Bool {
-        #if canImport(RoomPlan) && !targetEnvironment(simulator)
-        RoomCaptureSession.isSupported
-        #else
-        false
-        #endif
-    }
-
-    func finishScan() async throws -> ScannedRoom {
-        guard isAvailable else { throw RoomScannerError.unavailable }
-        return ScannedRoom(
-            dimensions: RoomDimensions(
-                length: Decimal(string: "4.2")!,
-                width: Decimal(string: "3.6")!,
-                height: Decimal(string: "2.6")!,
-                openings: [
-                    OpeningDimensions(kind: .door, width: Decimal(string: "0.9")!, height: Decimal(string: "2.1")!),
-                    OpeningDimensions(kind: .window, width: Decimal(string: "1.2")!, height: Decimal(string: "1.4")!, quantity: 2)
-                ]
-            ),
-            wallCount: 4
-        )
-    }
+/// Debug-only demo scan for the simulator: the living room from the designs.
+enum DemoScan {
+    static let room = ScannedRoom(
+        dimensions: RoomDimensions(
+            length: Decimal(string: "4.2")!,
+            width: Decimal(string: "3.6")!,
+            height: Decimal(string: "2.6")!,
+            openings: [
+                OpeningDimensions(kind: .door, width: Decimal(string: "0.9")!, height: Decimal(string: "2.1")!),
+                OpeningDimensions(kind: .window, width: Decimal(string: "1.2")!, height: Decimal(string: "1.4")!, quantity: 2)
+            ]
+        ),
+        wallCount: 4
+    )
 }

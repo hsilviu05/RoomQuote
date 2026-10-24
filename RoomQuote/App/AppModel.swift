@@ -21,7 +21,7 @@ final class AppModel {
     var quotesPath: [Route] = []
     var isPaywallPresented = false
     let entitlements = EntitlementStore()
-    let scanner: any RoomScanner = StubRoomScanner()
+    let scanMode = ScanMode.current
 
     /// Starts the new-quote flow, or shows the paywall when the free limit is used up.
     func startNewQuote(createdDates: [Date]) {
