@@ -243,9 +243,26 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     for index, slug in enumerate(SLUGS):
         frame = strip.crop((index * W, 0, (index + 1) * W, H)).convert("RGB")
-        path = OUT / f"en_69_{index + 1:02d}_{slug}.png"
-        frame.save(path, "PNG", optimize=True)
-        print(f"wrote {path.relative_to(HERE.parent)}")
+        for label, size in SIZES.items():
+            path = OUT / f"en_{label}_{index + 1:02d}_{slug}.png"
+            fit(frame, size).save(path, "PNG", optimize=True)
+            print(f"wrote {path.relative_to(HERE.parent)}")
+
+
+# App Store Connect slots: 6.9" (1320x2868), 6.5" (1284x2778), 6.1" (1206x2622).
+# The aspect ratios differ by under 0.5%, so each is a scale plus a few pixels' crop.
+SIZES = {"69": (1320, 2868), "65": (1284, 2778), "61": (1206, 2622)}
+
+
+def fit(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
+    """Scale to cover `size`, then crop the overflow from the bottom (and sides, centred)."""
+    tw, th = size
+    scale = max(tw / frame.width, th / frame.height)
+    scaled = frame.resize((round(frame.width * scale), round(frame.height * scale)), Image.LANCZOS)
+    left = (scaled.width - tw) // 2
+    out = scaled.crop((left, 0, left + tw, th))
+    assert out.size == size and out.mode == "RGB"
+    return out
 
 
 if __name__ == "__main__":
