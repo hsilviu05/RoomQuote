@@ -25,7 +25,7 @@ struct PDFTests {
         let (quote, profile) = try sampleQuote(in: container.mainContext)
         let doc = try QuoteDocument(quote: quote, profile: profile, formatters: formatters, isPro: false)
         #expect(doc.businessName == "Popa Renovări")
-        #expect(doc.businessDetails == ["0722 000 000"])
+        #expect(doc.businessDetails == ["0722 000 000", "office@poparenovari.ro"])
         #expect(doc.clientName == "Ana Popescu")
         #expect(doc.lines.map(\.description) == ["Wall paint, 2 × 5 L", "Primer, 1 × 5 L", "Tape & protection", "Labour, 35.3 m²"])
         #expect(doc.lines.map(\.amount) == ["378.00 lei", "120.00 lei", "60.00 lei", "635.58 lei"])
