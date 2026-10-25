@@ -145,12 +145,12 @@ enum QuoteBuilder {
         case .squareMetre:
             quantity = workArea.rounded(scale: 2)
             unit = .squareMetre
-            detail = String(localized: "\(formatters.area(quantity)) × \(formatters.money(price.unitPrice))/m²")
+            detail = String(localized: "\(formatters.area(quantity)) × \(formatters.rate(price.unitPrice))/m²")
             summary = String(localized: "\(price.name), \(formatters.area(quantity))")
         case .hour:
             quantity = 1
             unit = .hour
-            detail = String(localized: "1 h × \(formatters.money(price.unitPrice))/h")
+            detail = String(localized: "1 h × \(formatters.rate(price.unitPrice))/h")
             summary = price.name
         case .item:
             quantity = 1
@@ -184,11 +184,11 @@ enum QuoteBuilder {
             switch job.labourMode {
             case .perSquareMetre:
                 let area = formatters.area(item.quantity)
-                return (String(localized: "\(area) × \(formatters.money(item.unitPrice))/m²"),
+                return (String(localized: "\(area) × \(formatters.rate(item.unitPrice))/m²"),
                         String(localized: "Labour, \(area)"))
             case .perHour:
                 let hours = formatters.number(item.quantity, 1, minimumFractionDigits: 0)
-                return (String(localized: "\(hours) h × \(formatters.money(item.unitPrice))/h"),
+                return (String(localized: "\(hours) h × \(formatters.rate(item.unitPrice))/h"),
                         String(localized: "Labour, \(hours) h"))
             }
         case .material, .other:

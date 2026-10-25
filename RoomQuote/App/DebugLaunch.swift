@@ -26,7 +26,7 @@ enum DebugLaunch {
     /// `-prefillManual` fills the measurement form with the living room from the designs.
     static func prefillIfRequested(_ model: ManualMeasurementsViewModel) {
         guard ProcessInfo.processInfo.arguments.contains("-prefillManual") else { return }
-        model.clientName = "Ana Popescu"
+        model.clientName = ProcessInfo.processInfo.arguments.contains("-sampleUSD") ? "Emma Clarke" : "Ana Popescu"
         model.roomName = "Living room"
         model.length = "4.2"
         model.width = "3.6"

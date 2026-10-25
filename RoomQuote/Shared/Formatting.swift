@@ -20,6 +20,11 @@ struct Formatters {
         )
     }
 
+    /// Unit prices (per m², per hour): whole amounts as "18 lei", others with cents ("$3.50").
+    func rate(_ value: Decimal) -> String {
+        money(value, fractionDigits: value == value.rounded(scale: 0) ? 0 : 2)
+    }
+
     /// Currencies conventionally written after the amount.
     static let suffixSymbols = ["RON": "lei"]
 
