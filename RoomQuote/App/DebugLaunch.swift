@@ -22,5 +22,22 @@ enum DebugLaunch {
         default: break
         }
     }
+
+    /// `-prefillManual` fills the measurement form with the living room from the designs.
+    static func prefillIfRequested(_ model: ManualMeasurementsViewModel) {
+        guard ProcessInfo.processInfo.arguments.contains("-prefillManual") else { return }
+        model.clientName = "Ana Popescu"
+        model.roomName = "Living room"
+        model.length = "4.2"
+        model.width = "3.6"
+        model.height = "2.6"
+        model.addOpening(.door)
+        model.openings[0].width = "0.9"
+        model.openings[0].height = "2.1"
+        model.addOpening(.window)
+        model.openings[1].width = "1.2"
+        model.openings[1].height = "1.4"
+        model.openings[1].quantity = 2
+    }
 }
 #endif

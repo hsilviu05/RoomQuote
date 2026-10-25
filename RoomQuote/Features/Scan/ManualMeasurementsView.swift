@@ -23,7 +23,11 @@ struct ManualMeasurementsView: View {
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
             if model == nil {
-                model = ManualMeasurementsViewModel(unitSystem: profiles.first?.unitSystem ?? .metric)
+                let created = ManualMeasurementsViewModel(unitSystem: profiles.first?.unitSystem ?? .metric)
+                #if DEBUG
+                DebugLaunch.prefillIfRequested(created)
+                #endif
+                model = created
             }
         }
         .alert("Couldn't save the room", isPresented: .constant(saveError != nil), presenting: saveError) { _ in

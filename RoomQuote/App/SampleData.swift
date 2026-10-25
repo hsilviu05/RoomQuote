@@ -25,6 +25,9 @@ enum SampleData {
     static func seed(_ context: ModelContext, now: Date = .now) throws {
         let profile = try BusinessProfile.current(in: context)
         profile.currencyCode = "RON"
+        profile.name = "Popa Renovări"
+        profile.phone = "0722 123 456"
+        profile.email = "office@poparenovari.ro"
         profile.quoteValidityDays = 14
         profile.terms = String(localized: "Materials priced at today's supplier rates.")
         profile.nextQuoteNumber = 30
